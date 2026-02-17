@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kramps EHS Ventures | Leading EHS Consultancy in Ghana</title>
+    <meta name="description"
+        content="Kramps EHS Ventures - Ghana’s leading EHS consultancy, ISO compliance expert, and mining & industrial safety authority.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#003366', // Deep corporate blue
+                            green: '#28A745', // Safety/Environmental green
+                            dark: '#1a1a1a',
+                            light: '#f4f4f4',
+                            gray: '#6c757d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.7)), url('https://images.unsplash.com/photo-1581094794329-cd280bdadd6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 antialiased" x-data="{ mobileMenuOpen: false, scrolled: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false">
+
+    <!-- Navigation -->
+    <nav :class="scrolled ? 'glass-nav py-3 shadow-md' : 'bg-transparent py-5'"
+        class="fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-24 w-auto object-contain shadow-lg group-hover:scale-105 transition-transform">
+                <div class="flex flex-col">
+                    <span :class="scrolled ? 'text-brand-blue' : 'text-white'"
+                        class="font-bold text-lg leading-tight tracking-tight">KRAMPS EHS</span>
+                    <span :class="scrolled ? 'text-brand-gray' : 'text-gray-300'"
+                        class="text-xs font-semibold tracking-widest">VENTURES</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html"
+                    :class="scrolled ? 'text-brand-blue hover:text-brand-green' : 'text-white hover:text-brand-green'"
+                    class="font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
+                <a href="about.html"
+                    :class="scrolled ? 'text-gray-600 hover:text-brand-blue' : 'text-gray-200 hover:text-white'"
+                    class="font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
+                <a href="team.html"
+                    :class="scrolled ? 'text-gray-600 hover:text-brand-blue' : 'text-gray-200 hover:text-white'"
+                    class="font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
+
+                <!-- Services Dropdown (Simple for now, can be expanded) -->
+                <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
+                    @mouseleave="open = false">
+                    <a href="services.html"
+                        :class="scrolled ? 'text-gray-600 hover:text-brand-blue' : 'text-gray-200 hover:text-white'"
+                        class="font-medium transition py-2 flex items-center gap-1 cursor-pointer">
+                        Services <i class="fas fa-chevron-down text-xs transition-transform"
+                            :class="open ? 'rotate-180' : ''"></i>
+                    </a>
+                    <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 translate-y-2"
+                        class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 border border-gray-100 overflow-hidden">
+                        <a href="service-safety.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-blue hover:text-white transition">Safety
+                            & Env. Management</a>
+                        <a href="service-risk.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-blue hover:text-white transition">Risk
+                            Assessment</a>
+                        <a href="service-monitoring.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-blue hover:text-white transition">Environmental
+                            Monitoring</a>
+                        <a href="service-esia.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-blue hover:text-white transition">ESIA
+                            Studies</a>
+                        <a href="services.html"
+                            class="block px-4 py-2 text-xs text-brand-green font-bold uppercase tracking-wider text-center mt-2 border-t pt-2">View
+                            All Services</a>
+                    </div>
+                </div>
+
+                <a href="projects.html"
+                    :class="scrolled ? 'text-gray-600 hover:text-brand-blue' : 'text-gray-200 hover:text-white'"
+                    class="font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
+                <a href="contact.html"
+                    class="bg-brand-green hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg hover:shadow-green-500/30 transform hover:-translate-y-0.5">Get
+                    Quote</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none">
+                <i :class="scrolled ? 'text-brand-blue' : 'text-white'" class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Menu Overlay (Moved outside nav to avoid z-index/transform issues) -->
+    <div x-cloak x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300 transform"
+        x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-[60] flex flex-col h-full overflow-y-auto">
+
+        <div class="p-6 border-b flex justify-between items-center">
+            <span class="font-bold text-brand-blue text-lg">Menu</span>
+            <button @click="mobileMenuOpen = false" class="text-gray-500 hover:text-red-500 transition">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col p-6 space-y-4">
+            <a href="index.html" class="text-brand-blue font-medium text-lg border-l-4 border-brand-green pl-4">Home</a>
+            <a href="about.html"
+                class="text-gray-600 font-medium text-lg hover:text-brand-blue pl-4 border-l-4 border-transparent hover:border-gray-300 transition">About</a>
+            <a href="team.html"
+                class="text-gray-600 font-medium text-lg hover:text-brand-blue pl-4 border-l-4 border-transparent hover:border-gray-300 transition">Team</a>
+            <a href="services.html"
+                class="text-gray-600 font-medium text-lg hover:text-brand-blue pl-4 border-l-4 border-transparent hover:border-gray-300 transition">Services</a>
+            <a href="projects.html"
+                class="text-gray-600 font-medium text-lg hover:text-brand-blue pl-4 border-l-4 border-transparent hover:border-gray-300 transition">Projects</a>
+            <a href="contact.html"
+                class="mt-4 bg-brand-blue text-white text-center py-3 rounded-lg shadow-lg font-semibold">Contact
+                Us</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white hero-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-brand-blue/80"></div>
+
+        <div class="relative container mx-auto px-6 z-10 pt-20" data-aos="fade-up" data-aos-duration="1000">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-brand-green/20 border border-brand-green/50 text-brand-green font-semibold text-sm mb-6 backdrop-blur-sm">
+                Safety First, Always.
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
+                Excellence in EHS <br /> <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">Consultancy &
+                    Engineering</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Ghana’s trusted partner for Environmental, Health, and Safety solutions. We deliver ISO compliance and
+                sustainable industrial practices.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="services.html"
+                    class="bg-brand-green hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-xl hover:shadow-green-500/40 flex items-center justify-center gap-2">
+                    Explore Services <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="contact.html"
+                    class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-8 rounded-full transition flex items-center justify-center gap-2">
+                    Request Consultation
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/70 hover:text-white transition">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About / Introduction Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Safety Engineer"
+                            class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="font-bold text-xl">Certified Expertise</p>
+                            <p class="text-sm opacity-80">ISO 9001, 14001, 45001</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h3 class="text-brand-green font-bold uppercase tracking-wider text-sm mb-2">Who We Are</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-6">Pioneering Safety & Sustainability
+                        Standards in Ghana</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Kramps EHS Ventures is a premier Environmental, Health, and Safety (EHS) consultancy firm. We
+                        specialize in helping mining, industrial, and corporate sectors achieve world-class safety
+                        standards and regulatory compliance.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                            <span class="text-gray-700">Comprehensive Risk Assessment & Management</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                            <span class="text-gray-700">Environmental Impact Assessment (EIA/ESIA)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                            <span class="text-gray-700">ISO Certification Support & Safety Training</span>
+                        </li>
+                    </ul>
+                    <a href="about.html"
+                        class="text-brand-blue font-semibold hover:text-brand-green transition flex items-center gap-2 group">
+                        Read more about us <i
+                            class="fas fa-long-arrow-alt-right transform group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-brand-green font-bold uppercase tracking-wider text-sm mb-2">Our Solutions</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Core Services</h2>
+                <div class="w-20 h-1 bg-brand-green mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-brand-blue transition">Safety
+                        Management Systems</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Developing robust frameworks to ensure workplace safety and regulatory compliance.
+                    </p>
+                    <a href="service-safety.html"
+                        class="text-brand-green font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Learn
+                        More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fas fa-search-location text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-brand-blue transition">Risk
+                        Assessment</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Identifying and mitigating potential hazards before they impact operations.
+                    </p>
+                    <a href="service-risk.html"
+                        class="text-brand-green font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Learn
+                        More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fas fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-brand-blue transition">
+                        Environmental Monitoring</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Air, noise, and water quality monitoring to meet environmental standards.
+                    </p>
+                    <a href="service-monitoring.html"
+                        class="text-brand-green font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Learn
+                        More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="services.html"
+                    class="inline-block border-2 border-brand-blue text-brand-blue font-bold py-3 px-8 rounded-full hover:bg-brand-blue hover:text-white transition duration-300">View
+                    All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-brand-green mb-2">10+</div>
+                    <div class="text-sm md:text-base font-light text-gray-300">Years Experience</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-brand-green mb-2">50+</div>
+                    <div class="text-sm md:text-base font-light text-gray-300">Projects Completed</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-brand-green mb-2">100%</div>
+                    <div class="text-sm md:text-base font-light text-gray-300">Compliance Rate</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-4xl md:text-5xl font-bold text-brand-green mb-2">24/7</div>
+                    <div class="text-sm md:text-base font-light text-gray-300">Expert Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider (Swiper) -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-brand-green font-bold uppercase tracking-wider text-sm mb-2">Testimonials</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">What Our Clients Say</h2>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper pb-12">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 h-full flex flex-col">
+                            <div class="flex items-center gap-1 text-yellow-400 mb-4 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 italic mb-6 flex-grow">"Kramps EHS Ventures transformed our safety
+                                protocols. Their risk assessment was thorough and helped us avoid significant downtime."
+                            </p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                    <!-- Placeholder Avatar -->
+                                    <img src="https://ui-avatars.com/api/?name=Kwame+Mensah&background=0D8ABC&color=fff"
+                                        alt="Client">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Kwame Mensah</h4>
+                                    <p class="text-xs text-gray-500">Mining Ops Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 h-full flex flex-col">
+                            <div class="flex items-center gap-1 text-yellow-400 mb-4 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 italic mb-6 flex-grow">"Professional, detailed, and world-class
+                                service. They made getting our ISO 45001 certification seamless. Highly recommended!"
+                            </p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+Osei&background=28A745&color=fff"
+                                        alt="Client">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Sarah Osei</h4>
+                                    <p class="text-xs text-gray-500">Director, Construct GH</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 h-full flex flex-col">
+                            <div class="flex items-center gap-1 text-yellow-400 mb-4 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 italic mb-6 flex-grow">"Their environmental impact assessment report
+                                was incredibly detailed and helped us secure our permits in record time."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                    <img src="https://ui-avatars.com/api/?name=Kofi+Amankwah&background=1a1a1a&color=fff"
+                                        alt="Client">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Kofi Amankwah</h4>
+                                    <p class="text-xs text-gray-500">Project Lead, EcoMines</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-brand-green text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Safety Standards?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">Contact us today for a comprehensive EHS audit or
+                consultation for your next project.</p>
+            <a href="contact.html"
+                class="inline-block bg-white text-brand-green font-bold py-4 px-10 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1">
+                Get a Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-gray-300 py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-20 w-auto object-contain">
+                        <span class="text-white font-bold text-xl">KRAMPS EHS</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4">
+                        Delivering top-tier Environmental, Health, and Safety solutions across Ghana. Committed to
+                        excellence and sustainability.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-green transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-green transition"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-green transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-green transition">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-brand-green transition">Our Team</a></li>
+                        <li><a href="services.html" class="hover:text-brand-green transition">Our Services</a></li>
+                        <li><a href="projects.html" class="hover:text-brand-green transition">Projects</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-green transition">Latest News</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-green transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="service-safety.html" class="hover:text-brand-green transition">Safety
+                                Management</a></li>
+                        <li><a href="service-risk.html" class="hover:text-brand-green transition">Risk Assessment</a>
+                        </li>
+                        <li><a href="service-monitoring.html" class="hover:text-brand-green transition">Env.
+                                Monitoring</a></li>
+                        <li><a href="service-esia.html" class="hover:text-brand-green transition">ESIA Studies</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-green mt-1"></i>
+                            <span>123 Industrial Area Avenue,<br>Accra, Ghana</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-brand-green"></i>
+                            <span>+233 24 000 0000</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-green"></i>
+                            <span>info@krampsehs.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 Kramps EHS Ventures. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
