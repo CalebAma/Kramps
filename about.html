@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>About Us | Kramps EHS Ventures</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,26 +58,22 @@
     <!-- Navigation -->
     <nav class="glass-nav py-3 shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-24 w-auto object-contain shadow-lg group-hover:scale-105 transition-transform">
-                <div class="flex flex-col">
-                    <span class="text-brand-blue font-bold text-lg leading-tight tracking-tight">KRAMPS EHS</span>
-                    <span class="text-brand-gray text-xs font-semibold tracking-widest">VENTURES</span>
-                </div>
-            </a>
+            <a href="index.html" class="relative z-50 flex items-center h-16 w-auto"><img src="logo.png"
+                    alt="Kramps EHS Ventures Logo"
+                    class="h-12 w-auto object-contain transition-transform hover:scale-105"></a>
 
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="index.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
                 <a href="about.html"
-                    class="text-brand-blue font-bold transition py-2 border-b-2 border-brand-green">About</a>
+                    class="text-brand-blue text-sm font-bold uppercase tracking-wider transition py-2 border-b-2 border-brand-green">About</a>
                 <a href="team.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
 
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
                     @mouseleave="open = false">
                     <a href="services.html"
-                        class="text-gray-600 hover:text-brand-blue font-medium transition py-2 flex items-center gap-1 cursor-pointer">
+                        class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 flex items-center gap-1 cursor-pointer">
                         Services <i class="fas fa-chevron-down text-xs transition-transform"
                             :class="open ? 'rotate-180' : ''"></i>
                     </a>
@@ -99,9 +100,9 @@
                 </div>
 
                 <a href="projects.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
                 <a href="contact.html"
-                    class="bg-brand-green hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
+                    class="bg-brand-green hover:bg-green-600 text-white text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
                     Quote</a>
             </div>
 
@@ -157,24 +158,35 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-6">Overview</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Kramps EHS Ventures is a leading independent multidisciplinary company offering a comprehensive
+                        range of specialized engineering and management services in Environmental, Occupational Hygiene,
+                        Health, and Safety (EHS).
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Our world-class consultants are drawn from various engineering and management disciplines,
+                        including Environmental and Safety Engineering, Geological Engineering and Hydrology,
+                        Occupational Hygiene, Process Control Engineering and Simulation, and Geomatics, Artificial
+                        Intelligence, and Geodesy.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        <b>Our Aim:</b> To help you manage risk and ensure continual improvement, driving sustainable
+                        performance and ensuring business continuity free from legal interference.
+                    </p>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-6">Our Mission</h2>
                     <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        To provide world-class Environmental, Health, and Safety solutions that empower businesses to
-                        operate sustainably, safely, and efficiently. We strive to be the standard-bearer for industrial
-                        compliance in Ghana and West Africa.
+                        To provide our clients with robust, innovative, cost-effective, and tailored guidelines for
+                        approval processes, alongside technical advice to offset adverse environmental, health, and
+                        safety risks.
                     </p>
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-6">Our Vision</h2>
                     <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        To be the leading EHS consultancy recognized globally for innovation, integrity, and impact in
-                        creating safer workplaces and a greener environment.
+                        To become the pre-eminent environmental, health, and safety engineering services provider within
+                        the Sub-Saharan African region.
                     </p>
-                </div>
-                <div class="md:w-1/2 relative" data-aos="fade-left">
-                    <div
-                        class="absolute -inset-4 bg-brand-green/20 rounded-2xl md:-rotate-3 transform transition-transform duration-500 hover:rotate-0">
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Team Discussion" class="relative rounded-2xl shadow-2xl w-full h-auto object-cover">
                 </div>
             </div>
         </div>
@@ -185,7 +197,7 @@
         <div class="container mx-auto px-6 text-center">
             <div class="mb-16">
                 <h3 class="text-brand-green font-bold uppercase tracking-wider text-sm mb-2">Our Experts</h3>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Meet the Leadership Team</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Meet Our Leadership</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -199,15 +211,9 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-brand-blue">Dr. Eric Stemn</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Faculty Member, UMaT</p>
-                        <p class="text-gray-600 text-sm mb-4">Specializing in organizational learning from incidents and
-                            risk management in the minerals sector.</p>
-                        <div class="flex justify-center gap-4">
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-twitter fa-lg"></i></a>
-                        </div>
+                        <p class="text-brand-green font-medium text-sm mb-4">Risk Management Specialist</p>
+                        <p class="text-gray-600 text-sm mb-4">Specialist in organizational learning from incidents and
+                            risk management.</p>
                     </div>
                 </div>
 
@@ -221,15 +227,9 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-brand-blue">Francis Krampah</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer, UMaT</p>
-                        <p class="text-gray-600 text-sm mb-4">Expert in oil spill management, risk assessment, and
-                            environmental monitoring.</p>
-                        <div class="flex justify-center gap-4">
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-twitter fa-lg"></i></a>
-                        </div>
+                        <p class="text-brand-green font-medium text-sm mb-4">Environmental & Safety Auditor</p>
+                        <p class="text-gray-600 text-sm mb-4">Expert in environmental and safety auditing, oil spill
+                            management, and baseline monitoring.</p>
                     </div>
                 </div>
 
@@ -242,18 +242,18 @@
                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue">Shadrack Fosu</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer, UMaT</p>
+                        <h3 class="text-xl font-bold text-brand-blue">Dr. Shadrack Fosu</h3>
+                        <p class="text-brand-green font-medium text-sm mb-4">Process Engineering Expert</p>
                         <p class="text-gray-600 text-sm mb-4">Specializing in Environmental Chemistry, Process
-                            Engineering, and Site Remediation.</p>
-                        <div class="flex justify-center gap-4">
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-brand-blue"><i
-                                    class="fab fa-twitter fa-lg"></i></a>
-                        </div>
+                            Engineering, and Contaminated Site Remediation.</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-12">
+                <a href="team.html"
+                    class="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green transition shadow-lg transform hover:-translate-y-0.5">View
+                    Full Team</a>
             </div>
         </div>
     </section>
@@ -313,22 +313,22 @@
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-brand-green mt-1"></i>
-                            <span>123 Industrial Area Avenue,<br>Accra, Ghana</span>
+                            <span>Tamso<br>Tarkwa, Ghana</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-brand-green"></i>
-                            <span>+233 24 000 0000</span>
+                            <span>+233 54 902 2917</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-green"></i>
-                            <span>info@krampsehs.com</span>
+                            <span>krampsehs@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p>&copy; 2024 Kramps EHS Ventures. All Rights Reserved.</p>
+                <p>&copy; 2026 Kramps EHS Ventures. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Service</a>

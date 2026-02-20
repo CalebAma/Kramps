@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Policy & Documentation | Kramps EHS Ventures</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,26 +58,22 @@
     <!-- Navigation -->
     <nav class="glass-nav py-3 shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-24 w-auto object-contain shadow-lg group-hover:scale-105 transition-transform">
-                <div class="flex flex-col">
-                    <span class="text-brand-blue font-bold text-lg leading-tight tracking-tight">KRAMPS EHS</span>
-                    <span class="text-brand-gray text-xs font-semibold tracking-widest">VENTURES</span>
-                </div>
-            </a>
+            <a href="index.html" class="relative z-50 flex items-center h-16 w-auto"><img src="logo.png"
+                    alt="Kramps EHS Ventures Logo"
+                    class="h-12 w-auto object-contain transition-transform hover:scale-105"></a>
 
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="index.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
                 <a href="about.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
                 <a href="team.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
 
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
                     @mouseleave="open = false">
                     <a href="services.html"
-                        class="text-brand-blue font-bold transition py-2 flex items-center gap-1 cursor-pointer">
+                        class="text-brand-blue text-sm font-bold uppercase tracking-wider transition py-2 flex items-center gap-1 cursor-pointer">
                         Services <i class="fas fa-chevron-down text-xs transition-transform"
                             :class="open ? 'rotate-180' : ''"></i>
                     </a>
@@ -99,9 +100,9 @@
                 </div>
 
                 <a href="projects.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
                 <a href="contact.html"
-                    class="bg-brand-green hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
+                    class="bg-brand-green hover:bg-green-600 text-white text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
                     Quote</a>
             </div>
 
@@ -313,22 +314,22 @@
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-brand-green mt-1"></i>
-                            <span>123 Industrial Area Avenue,<br>Accra, Ghana</span>
+                            <span>Tamso<br>Tarkwa, Ghana</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-brand-green"></i>
-                            <span>+233 24 000 0000</span>
+                            <span>+233 54 902 2917</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-green"></i>
-                            <span>info@krampsehs.com</span>
+                            <span>krampsehs@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p>&copy; 2024 Kramps EHS Ventures. All Rights Reserved.</p>
+                <p>&copy; 2026 Kramps EHS Ventures. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Service</a>

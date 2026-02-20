@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Services | Kramps EHS Ventures</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -54,26 +59,22 @@
     <!-- Navigation -->
     <nav class="glass-nav py-3 shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-24 w-auto object-contain shadow-lg group-hover:scale-105 transition-transform">
-                <div class="flex flex-col">
-                    <span class="text-brand-blue font-bold text-lg leading-tight tracking-tight">KRAMPS EHS</span>
-                    <span class="text-brand-gray text-xs font-semibold tracking-widest">VENTURES</span>
-                </div>
-            </a>
+            <a href="index.html" class="relative z-50 flex items-center h-16 w-auto"><img src="logo.png"
+                    alt="Kramps EHS Ventures Logo"
+                    class="h-12 w-auto object-contain transition-transform hover:scale-105"></a>
 
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="index.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
                 <a href="about.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
                 <a href="team.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Team</a>
 
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
                     @mouseleave="open = false">
                     <a href="services.html"
-                        class="text-brand-blue font-bold transition py-2 flex items-center gap-1 cursor-pointer">
+                        class="text-brand-blue text-sm font-bold uppercase tracking-wider transition py-2 flex items-center gap-1 cursor-pointer">
                         Services <i class="fas fa-chevron-down text-xs transition-transform"
                             :class="open ? 'rotate-180' : ''"></i>
                     </a>
@@ -100,9 +101,9 @@
                 </div>
 
                 <a href="projects.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
                 <a href="contact.html"
-                    class="bg-brand-green hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
+                    class="bg-brand-green hover:bg-green-600 text-white text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
                     Quote</a>
             </div>
 
@@ -159,120 +160,93 @@
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Service 1 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="0">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="0">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-hard-hat text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Safety & Env. Management</h3>
-                <p class="text-gray-600 text-sm mb-4">Implementation of robust safety management systems (ISO 45001) to
-                    protect your workforce.</p>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Safety & Env. Management Systems</h3>
+                <p class="text-gray-600 text-sm mb-4">Establishment of management systems (ISO 14001, ISO 45001, HSG65).
+                    Gap analysis for international standards, audits, and workplace safety inspections.</p>
                 <a href="service-safety.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
                     &rarr;</a>
             </div>
 
             <!-- Service 2 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="100">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="100">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-exclamation-triangle text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Risk Assessment & Mgmt</h3>
-                <p class="text-gray-600 text-sm mb-4">Systematic identification and control of hazards to minimize
-                    operational risks.</p>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Risk Assessment & Management</h3>
+                <p class="text-gray-600 text-sm mb-4">Comprehensive assessments including COSHH, Ergonomic, Noise, Work
+                    at Height, Fire Safety, Vibration, and Asbestos surveys.</p>
                 <a href="service-risk.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
                     &rarr;</a>
             </div>
 
             <!-- Service 3 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="200">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="200">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-seedling text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Environmental Monitoring</h3>
-                <p class="text-gray-600 text-sm mb-4">Monitoring air, water, and noise levels to ensure environmental
-                    compliance.</p>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Environmental Monitoring & Control</h3>
+                <p class="text-gray-600 text-sm mb-4">Ambient air quality, stack emission monitoring, water quality
+                    assessment, soil pollution remediation, and ground vibration monitoring.</p>
                 <a href="service-monitoring.html" class="text-brand-green font-semibold text-sm hover:underline">Read
                     More &rarr;</a>
             </div>
 
             <!-- Service 4 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="300">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="300">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-clipboard-check text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mb-3">Management Plans</h3>
-                <p class="text-gray-600 text-sm mb-4">Strategic planning for ongoing environmental and safety
-                    management.</p>
+                <p class="text-gray-600 text-sm mb-4">Preparation & Implementation of Environmental, Oil Spill, Fire &
+                    Emergency, Hazardous Chemical, and Relocation Action Plans.</p>
                 <a href="service-management.html" class="text-brand-green font-semibold text-sm hover:underline">Read
                     More &rarr;</a>
             </div>
 
             <!-- Service 5 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="400">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="400">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-file-signature text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mb-3">Permits & Licensing</h3>
-                <p class="text-gray-600 text-sm mb-4">Assistance with obtaining necessary environmental and operational
-                    permits.</p>
+                <p class="text-gray-600 text-sm mb-4">Support for Environmental Permits and Mining Support Service
+                    Permits. Development of Safety/Environmental Policies.</p>
                 <a href="service-permits.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
                     &rarr;</a>
             </div>
 
             <!-- Service 6 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="500">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
+                data-aos="fade-up" data-aos-delay="500">
                 <div
                     class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                     <i class="fas fa-drafting-compass text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Surveying</h3>
-                <p class="text-gray-600 text-sm mb-4">Professional land and environmental surveying services.</p>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Surveying & Impact Assessment</h3>
+                <p class="text-gray-600 text-sm mb-4">Geophysical and Geodetic surveys. Environmental and Social Impact
+                    Assessments (ESIA) for government, NGOs, and private firms.</p>
                 <a href="service-surveying.html" class="text-brand-green font-semibold text-sm hover:underline">Read
                     More &rarr;</a>
-            </div>
-
-            <!-- Service 7 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="600">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-book text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Policy & Documentation</h3>
-                <p class="text-gray-600 text-sm mb-4">Drafting and reviewing EHS policies and documentation for
-                    compliance.</p>
-                <a href="service-policy.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
-            </div>
-
-            <!-- Service 8 -->
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition group" data-aos="fade-up"
-                data-aos-delay="700">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-globe-africa text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Env. & Social Impact (ESIA)</h3>
-                <p class="text-gray-600 text-sm mb-4">Comprehensive assessments of environmental and social impacts of
-                    projects.</p>
-                <a href="service-esia.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
             </div>
 
         </div>
     </section>
 
-    <!-- Footer (Simplified for brevity, matches index) -->
+    <!-- Footer -->
     <footer class="bg-brand-blue text-gray-300 py-12 border-t border-white/10">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -327,22 +301,22 @@
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-brand-green mt-1"></i>
-                            <span>123 Industrial Area Avenue,<br>Accra, Ghana</span>
+                            <span>Tamso<br>Tarkwa, Ghana</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-brand-green"></i>
-                            <span>+233 24 000 0000</span>
+                            <span>+233 54 902 2917</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-green"></i>
-                            <span>info@krampsehs.com</span>
+                            <span>krampsehs@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p>&copy; 2024 Kramps EHS Ventures. All Rights Reserved.</p>
+                <p>&copy; 2026 Kramps EHS Ventures. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Service</a>

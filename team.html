@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Our Team | Kramps EHS Ventures</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,26 +58,22 @@
     <!-- Navigation -->
     <nav class="glass-nav py-3 shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="logo.png" alt="Kramps EHS Ventures Logo" class="h-24 w-auto object-contain shadow-lg group-hover:scale-105 transition-transform">
-                <div class="flex flex-col">
-                    <span class="text-brand-blue font-bold text-lg leading-tight tracking-tight">KRAMPS EHS</span>
-                    <span class="text-brand-gray text-xs font-semibold tracking-widest">VENTURES</span>
-                </div>
-            </a>
+            <a href="index.html" class="relative z-50 flex items-center h-16 w-auto"><img src="logo.png"
+                    alt="Kramps EHS Ventures Logo"
+                    class="h-12 w-auto object-contain transition-transform hover:scale-105"></a>
 
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="index.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Home</a>
                 <a href="about.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">About</a>
                 <a href="team.html"
-                    class="text-brand-blue font-bold transition py-2 border-b-2 border-brand-green">Team</a>
+                    class="text-brand-blue text-sm font-bold uppercase tracking-wider transition py-2 border-b-2 border-brand-green">Team</a>
 
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
                     @mouseleave="open = false">
                     <a href="services.html"
-                        class="text-gray-600 hover:text-brand-blue font-medium transition py-2 flex items-center gap-1 cursor-pointer">
+                        class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 flex items-center gap-1 cursor-pointer">
                         Services <i class="fas fa-chevron-down text-xs transition-transform"
                             :class="open ? 'rotate-180' : ''"></i>
                     </a>
@@ -99,9 +100,9 @@
                 </div>
 
                 <a href="projects.html"
-                    class="text-gray-600 hover:text-brand-blue font-medium transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
+                    class="text-gray-600 hover:text-brand-blue text-sm font-semibold uppercase tracking-wider transition py-2 border-b-2 border-transparent hover:border-brand-green">Projects</a>
                 <a href="contact.html"
-                    class="bg-brand-green hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
+                    class="bg-brand-green hover:bg-green-600 text-white text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">Get
                     Quote</a>
             </div>
 
@@ -153,138 +154,182 @@
     </header>
 
     <!-- Team Grid -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section class="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative">
+        <div class="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center]"></div>
+        <div class="container mx-auto px-6 relative">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Dr. Eric Stemn -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Dr. Eric Stemn"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <img src="Stemn.jpg" alt="Dr. Eric Stemn"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Dr. Eric Stemn</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Faculty Member, UMaT</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> PhD in Occupational Health and Safety (Univ. of
-                                Queensland), MSc in Environmental Science (KNUST), BSc in Geomatic Engineering (UMaT).
-                            </p>
-                            <p><strong>Experience:</strong> Extensive experience in HSE consulting. Assisted Ghanaian
-                                companies with technical reports for EPA clearance.</p>
-                            <p><strong>Specialization:</strong> Organizational learning from incidents, risk management,
-                                industry-based workshops, and safety training.</p>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-24 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Dr. Eric Stemn</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Faculty Member,
+                                UMaT</p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> PhD in Occupational
+                                    Health and Safety (University of Queensland); MSc in Environmental Science (KNUST);
+                                    BSc in Geomatic Engineering (UMaT).</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Specialist in
+                                    organizational learning from incidents and risk management.</p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> Over 4 years in
+                                    consulting, assisting firms with EPA permit clearances.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Francis Krampah -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Francis Krampah"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="francis.jpg" alt="Francis Krampah"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Francis Krampah</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer, UMaT</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> MSc in Safety, Health and Env. Management (Univ. of
-                                South Wales), BSc in Environmental Science (UCC). PhD candidate at UMaT.</p>
-                            <p><strong>Experience:</strong> 6+ years as environmental and safety auditor. Former HSE
-                                tutor at UCC.</p>
-                            <p><strong>Specialization:</strong> Oil spill management, risk assessment, baseline
-                                monitoring, air/water quality modeling. National small-scale mining training
-                                facilitator.</p>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-24 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Francis Krampah</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Lecturer, UMaT
+                            </p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> MSc in Safety,
+                                    Health, and Env. Management (Univ. of South Wales); BSc in Env. Science (UCC).</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Environmental and safety
+                                    auditing, oil spill management.</p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> 6+ years in HSE
+                                    tutoring and consultancy for mining and thermal companies.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Shadrack Fosu -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Shadrack Fosu"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <img src="shadarack.jpg" alt="Shadrack Fosu"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Shadrack Fosu</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer, UMaT</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> PhD in Minerals and Materials Engineering (Univ. of
-                                South Australia), BSc in Minerals Engineering (UMaT).</p>
-                            <p><strong>Experience:</strong> Corporate environmental consultancy for mining companies.
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-20 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Dr. Shadrack Fosu</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Member of WAIMM
                             </p>
-                            <p><strong>Specialization:</strong> Environmental Chemistry, Process Engineering,
-                                Contaminated Site Remediation, Wastewater Treatment.</p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> PhD in Minerals and
+                                    Materials Engineering (University of South Australia).</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Environmental Chemistry,
+                                    Process Engineering, and Contaminated Site Remediation.</p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> Extensive consultancy
+                                    in ESIA baseline studies and process control training.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Dr. Yao Yevenyo Ziggah -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Dr. Yao Yevenyo Ziggah"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <img src="yao.jpg" alt="Dr. Yao Yevenyo Ziggah"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Dr. Yao Yevenyo Ziggah</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer, UMaT</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> PhD and MEng in Geodesy and Survey Engineering (China
-                                Univ. of Geosciences), BSc in Geomatic Engineering (KNUST).</p>
-                            <p><strong>Experience:</strong> Exploration and mine surveyor since 2010.</p>
-                            <p><strong>Specialization:</strong> Environmental geodesy, geoinformatics, monitoring,
-                                modeling, geophysical surveys, and GIS.</p>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-24 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Dr. Yao Yevenyo Ziggah</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Lecturer, UMaT
+                            </p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> PhD and MEng in
+                                    Geodesy and Survey Engineering (China Univ. of Geosciences).</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Environmental Geodesy
+                                    and Geoinformatics. Specialist in using surveying to solve environmental problems.
+                                </p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> Former exploration and
+                                    mine surveyor; Lecturer at UMaT since 2017.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Ishmael Quaicoe -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Ishmael Quaicoe"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <img src="michael.jpg" alt="Ishmael Quaicoe"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Ishmael Quaicoe</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Lecturer/Researcher, UMaT</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> PhD and BSc in Minerals and Materials Engineering (Univ.
-                                of South Australia / UMaT).</p>
-                            <p><strong>Experience:</strong> Technical support to mining, oil, gas industries. National
-                                training facilitator.</p>
-                            <p><strong>Specialization:</strong> Risk Assessment, Environmental Pollution Control, Waste
-                                Management, OHS.</p>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-20 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Dr. Ishmael Quaicoe</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Technical
+                                Consultant</p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> PhD in Minerals and
+                                    Materials Engineering (University of South Australia).</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Waste Management,
+                                    Water/Air quality monitoring, and OHS.</p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> Technical consultant
+                                    for Mining, Oil & Gas sectors. Facilitator for sustainable small-scale mining.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Joe Asare Theophilus -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Joe Asare Theophilus"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="relative group rounded-2xl shadow-xl overflow-hidden h-[480px] cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <img src="joe.png" alt="Joe Asare Theophilus"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-in-out">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Joe Asare Theophilus</h3>
-                        <p class="text-brand-green font-medium text-sm mb-4">Postgraduate Research Assistant</p>
-                        <div class="text-left text-sm text-gray-600 space-y-3">
-                            <p><strong>Qualifications:</strong> PhD candidate in Safety Engineering, BSc in
-                                Environmental and Safety Engineering (UMaT).</p>
-                            <p><strong>Experience:</strong> Consultant for Sanayi Insaat, Mensin Gold, Ghana Rubber
-                                Estates. Experience at Newmont.</p>
-                            <p><strong>Specialization:</strong> Fire Risk Assessment, Occupational Hygiene, Accident
-                                Investigation and Control.</p>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div
+                            class="transform translate-y-24 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-tight">Joe Asare Theophilus</h3>
+                            <p class="text-brand-green font-bold text-xs mb-4 uppercase tracking-widest">Postgraduate
+                                Research Assistant</p>
+
+                            <div
+                                class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm text-gray-200 space-y-3">
+                                <p><strong class="text-white font-semibold">Qualifications:</strong> PhD Candidate in
+                                    Safety Engineering (UMaT); BSc in Environmental and Safety Engineering.</p>
+                                <p><strong class="text-white font-semibold">Expertise:</strong> Fire Risk Assessment,
+                                    Accident Investigation, and Industrial Hygiene.</p>
+                                <p><strong class="text-white font-semibold">Experience:</strong> Consulting services for
+                                    Sanayi Insaat Ticaret, Mensin Gold, and GREL.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -347,22 +392,22 @@
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-brand-green mt-1"></i>
-                            <span>123 Industrial Area Avenue,<br>Accra, Ghana</span>
+                            <span>Tamso<br>Tarkwa, Ghana</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-brand-green"></i>
-                            <span>+233 24 000 0000</span>
+                            <span>+233 54 902 2917</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-green"></i>
-                            <span>info@krampsehs.com</span>
+                            <span>krampsehs@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p>&copy; 2024 Kramps EHS Ventures. All Rights Reserved.</p>
+                <p>&copy; 2026 Kramps EHS Ventures. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Service</a>
