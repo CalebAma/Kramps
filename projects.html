@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -149,161 +151,104 @@
     <header class="bg-brand-blue text-white pt-32 pb-20">
         <div class="container mx-auto px-6 text-center" data-aos="fade-down">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Projects</h1>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Showcasing our experience in delivering top-tier safety
-                and environmental solutions.</p>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Field work, monitoring, and community programmes delivered
+                across Ghana — browse photos by activity type below.</p>
         </div>
     </header>
 
-    <!-- Projects Gallery with Filter -->
-    <section class="py-20 bg-gray-50" x-data="{ filter: 'all' }">
+    <!-- Project photo gallery (images in images/project-gallery/&lt;folder&gt;/) -->
+    <section class="py-20 bg-gray-50" x-data="projectGallery()">
         <div class="container mx-auto px-6">
 
-            <!-- Filters -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
-                <button @click="filter = 'all'"
-                    :class="filter === 'all' ? 'bg-brand-green text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'"
-                    class="px-6 py-2 rounded-full font-medium transition duration-300 border border-gray-200">
-                    All Projects
+            <!-- Category filters -->
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-14 max-w-5xl mx-auto" data-aos="fade-up">
+                <button type="button" @click="filter = 'all'"
+                    :class="filter === 'all' ? 'bg-brand-green text-white shadow-lg border-brand-green' : 'bg-white text-gray-600 hover:bg-gray-100 border-gray-200'"
+                    class="px-4 py-2 rounded-full text-sm font-medium transition duration-300 border">
+                    All
                 </button>
-                <button @click="filter = 'mining'"
-                    :class="filter === 'mining' ? 'bg-brand-green text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'"
-                    class="px-6 py-2 rounded-full font-medium transition duration-300 border border-gray-200">
-                    Mining
-                </button>
-                <button @click="filter = 'industrial'"
-                    :class="filter === 'industrial' ? 'bg-brand-green text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'"
-                    class="px-6 py-2 rounded-full font-medium transition duration-300 border border-gray-200">
-                    Industrial
-                </button>
-                <button @click="filter = 'environmental'"
-                    :class="filter === 'environmental' ? 'bg-brand-green text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'"
-                    class="px-6 py-2 rounded-full font-medium transition duration-300 border border-gray-200">
-                    Environmental
-                </button>
+                <template x-for="cat in categories" :key="cat.id">
+                    <button type="button" @click="filter = cat.id"
+                        :class="filter === cat.id ? 'bg-brand-green text-white shadow-lg border-brand-green' : 'bg-white text-gray-600 hover:bg-gray-100 border-gray-200'"
+                        class="px-4 py-2 rounded-full text-sm font-medium transition duration-300 border"
+                        x-text="cat.title"></button>
+                </template>
             </div>
 
-            <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Grouped galleries -->
+            <template x-for="cat in filteredCategories()" :key="cat.id">
+                <div class="mb-16 last:mb-0" data-aos="fade-up"
+                    x-show="filter === 'all' || filter === cat.id"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0">
+                    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6 border-b border-gray-200 pb-4">
+                        <h2 class="text-2xl md:text-3xl font-bold text-brand-blue" x-text="cat.title"></h2>
+                        <span class="text-sm text-gray-500 font-medium"
+                            x-text="cat.images.length ? cat.images.length + ' photo' + (cat.images.length === 1 ? '' : 's') : 'No photos yet'"></span>
+                    </div>
 
-                <!-- Project 1 (Mining) -->
-                <div x-show="filter === 'all' || filter === 'mining'"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Mining Safety"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-brand-green text-white px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition duration-300 font-medium">View
-                                Case Study</a>
-                        </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+                        x-show="cat.images.length > 0">
+                        <template x-for="(src, index) in cat.images" :key="src">
+                            <button type="button"
+                                class="group relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-white ring-1 ring-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-green"
+                                @click="openLightbox(cat, index)">
+                                <img :src="src" :alt="cat.title + ' — photo ' + (index + 1)" loading="lazy"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <span
+                                    class="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/30 transition flex items-center justify-center">
+                                    <i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                                </span>
+                            </button>
+                        </template>
                     </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Mining</span>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Gold Fields Safety Audit</h3>
-                        <p class="text-gray-600 text-sm">Comprehensive safety compliance audit for a large-scale mining
-                            operation in Tarkwa.</p>
-                    </div>
-                </div>
 
-                <!-- Project 2 (Industrial) -->
-                <div x-show="filter === 'all' || filter === 'industrial'"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Factory"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-brand-green text-white px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition duration-300 font-medium">View
-                                Case Study</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Industrial</span>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Tema Factory Risk Assessment</h3>
-                        <p class="text-gray-600 text-sm">Hazard identification and risk mitigation strategy for a
-                            manufacturing plant.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 (Environmental) -->
-                <div x-show="filter === 'all' || filter === 'environmental'"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Wind Farm"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-brand-green text-white px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition duration-300 font-medium">View
-                                Case Study</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Environmental</span>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Coastal Impact Assessment</h3>
-                        <p class="text-gray-600 text-sm">Environmental impact study for a new coastal development
-                            project.</p>
-                    </div>
-                </div>
-
-                <!-- Project 4 (Mining) -->
-                <div x-show="filter === 'all' || filter === 'mining'"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1599818451124-7341fe77893b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Miner"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-brand-green text-white px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition duration-300 font-medium">View
-                                Case Study</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Mining</span>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Obuasi Mine Training</h3>
-                        <p class="text-gray-600 text-sm">Delivered ISO 45001 training to over 500 mine workers.</p>
-                    </div>
-                </div>
-
-                <!-- Project 5 (Industrial) -->
-                <div x-show="filter === 'all' || filter === 'industrial'"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Factory Worker"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-brand-green text-white px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition duration-300 font-medium">View
-                                Case Study</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Industrial</span>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Oil Refinery Fire Safety</h3>
-                        <p class="text-gray-600 text-sm">Developed fire safety protocols and emergency response plans.
+                    <div x-show="cat.images.length === 0"
+                        class="rounded-xl border-2 border-dashed border-gray-300 bg-white/80 py-12 px-6 text-center">
+                        <i class="fas fa-images text-4xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-600 font-medium mb-1">Photos coming soon</p>
+                        <p class="text-sm text-gray-500">
+                            Add images to
+                            <span class="font-mono text-brand-blue" x-text="'images/project-gallery/' + cat.folder + '/'"></span>
                         </p>
                     </div>
                 </div>
+            </template>
+        </div>
 
+        <!-- Lightbox -->
+        <div x-cloak x-show="lightboxOpen" x-transition.opacity
+            class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90"
+            @click.self="closeLightbox()"
+            @keydown.escape.window="closeLightbox()"
+            @keydown.arrow-right.window.prevent="lightboxOpen && nextImage()"
+            @keydown.arrow-left.window.prevent="lightboxOpen && prevImage()"
+            role="dialog" aria-modal="true" aria-label="Photo viewer">
+            <button type="button" @click="closeLightbox()"
+                class="absolute top-4 right-4 text-white/90 hover:text-white text-3xl z-10"
+                aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <button type="button" @click="prevImage()"
+                class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-2xl md:text-4xl z-10 p-3 rounded-full hover:bg-white/10 transition"
+                aria-label="Previous photo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" @click="nextImage()"
+                class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-2xl md:text-4xl z-10 p-3 rounded-full hover:bg-white/10 transition"
+                aria-label="Next photo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="max-w-5xl w-full px-12 md:px-16">
+                <img :src="lightboxSrc" :alt="lightboxTitle"
+                    class="max-h-[80vh] w-full object-contain mx-auto rounded-lg shadow-2xl">
+                <div class="text-center mt-4 space-y-1">
+                    <p class="text-white/90 text-sm md:text-base font-medium" x-text="lightboxTitle"></p>
+                    <p class="text-white/60 text-xs md:text-sm" x-text="lightboxCounter()"></p>
+                </div>
             </div>
         </div>
     </section>
@@ -387,6 +332,8 @@
         </div>
     </footer>
 
+    <script src="gallery-data.js"></script>
+    <script src="project-gallery.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>

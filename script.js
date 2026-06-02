@@ -52,14 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Inject Logo Watermark Overlay
-    const watermark = document.createElement('div');
-    // Ensure it's behind everything but fixed in place (z-0 is typically behind content positioned without a z-index, but pointer-events-none makes it safe either way)
-    watermark.className = 'fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden';
-    // Use responsive sizing: 80% width on mobile, 60% on tablet, 40% on laptop, 30% on desktop
-    watermark.innerHTML = '<img src="logo.png" class="w-[80%] md:w-[60%] lg:w-[40%] xl:w-[30%] h-auto opacity-[0.08] object-contain">';
-    document.body.appendChild(watermark);
-
     // Basic Copy Protection / Source Hiding
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();

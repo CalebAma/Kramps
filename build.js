@@ -20,7 +20,7 @@ async function build() {
 
     for (let item of items) {
         // Skip these folders/files
-        if (['node_modules', 'dist', '.git', 'package.json', 'package-lock.json', 'build.js'].includes(item)) {
+        if (['node_modules', 'dist', '.git', 'package.json', 'package-lock.json', 'build.js', 'scripts'].includes(item)) {
             continue;
         }
 
@@ -51,6 +51,13 @@ async function build() {
             }
             await fs.writeFile(distPath, content, 'utf-8');
         } else if (item.endsWith('.js')) {
+            const galleryScripts = ['gallery-data.js', 'project-gallery.js'];
+            if (galleryScripts.includes(item)) {
+                console.log(`Copying gallery JS: ${item}`);
+                await fs.copy(fullPath, distPath);
+                continue;
+            }
+
             console.log(`Obfuscating JS: ${item}`);
             let content = await fs.readFile(fullPath, 'utf-8');
 

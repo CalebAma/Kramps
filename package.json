@@ -4,6 +4,8 @@
   "description": "A fully responsive corporate website for **Kramps EHS Ventures**, built using HTML5, Tailwind CSS (CDN), and Vanilla JavaScript.",
   "main": "script.js",
   "scripts": {
+    "gallery:scan": "node scripts/scan-gallery.js",
+    "build": "node scripts/scan-gallery.js && node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
