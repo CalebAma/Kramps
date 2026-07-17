@@ -28,7 +28,6 @@ async function build() {
         const stats = await fs.stat(fullPath);
 
         if (stats.isDirectory()) {
-            // We assume mostly flat structure based on previous interactions, but just in case, copy standard dirs
             await fs.copy(fullPath, path.join(distDir, item));
             continue;
         }
@@ -51,7 +50,7 @@ async function build() {
             }
             await fs.writeFile(distPath, content, 'utf-8');
         } else if (item.endsWith('.js')) {
-            const galleryScripts = ['gallery-data.js', 'project-gallery.js'];
+            const galleryScripts = ['gallery-data.js', 'project-gallery.js', 'hero-carousel.js'];
             if (galleryScripts.includes(item)) {
                 console.log(`Copying gallery JS: ${item}`);
                 await fs.copy(fullPath, distPath);

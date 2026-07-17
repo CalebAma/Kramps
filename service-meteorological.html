@@ -11,7 +11,7 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Services | Kramps EHS Ventures</title>
+    <title>Meteorological Monitoring | Kramps EHS Ventures</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,7 +37,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <style>
         [x-cloak] {
@@ -149,172 +148,118 @@
     </div>
 
     <!-- Page Header -->
-    <header class="bg-brand-blue text-white pt-32 pb-20">
-        <div class="container mx-auto px-6 text-center" data-aos="fade-down">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Comprehensive Environmental, Health, and Safety solutions
-                tailored for your industry needs.</p>
+    <header class="bg-brand-blue text-white pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center z-0"
+            style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-20" data-aos="fade-down">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-brand-green/20 border border-brand-green/50 text-brand-green font-semibold text-sm mb-4 backdrop-blur-sm bg-black/50">Core
+                Service</span>
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-md">Meteorological Monitoring</h1>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto drop-shadow-sm">Weather and climate data collection to
+                support environmental compliance and operational decision-making.</p>
         </div>
     </header>
 
-    <!-- Services Grid -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Service Details -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12">
 
-            <!-- Service 1 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="0">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-hard-hat text-2xl"></i>
+            <!-- Sidebar -->
+            <div class="lg:w-1/3 space-y-8 order-2 lg:order-1">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 sticky top-24">
+                    <h3 class="font-bold text-xl text-brand-blue mb-4">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="service-safety.html"
+                                class="block p-3 rounded hover:bg-white text-gray-600 hover:text-brand-blue hover:shadow transition border-l-4 border-transparent hover:border-gray-200">Safety
+                                & Env. Management</a></li>
+                        <li><a href="service-risk.html"
+                                class="block p-3 rounded hover:bg-white text-gray-600 hover:text-brand-blue hover:shadow transition border-l-4 border-transparent hover:border-gray-200">Risk
+                                Assessment</a></li>
+                        <li><a href="service-meteorological.html"
+                                class="block p-3 rounded bg-brand-blue text-white font-medium border-l-4 border-brand-green">Meteorological
+                                Monitoring</a></li>
+                        <li><a href="services.html"
+                                class="block p-3 rounded text-brand-green font-medium text-sm mt-4 hover:underline">View
+                                All Services &rarr;</a></li>
+                    </ul>
+
+                    <div class="mt-8 bg-brand-blue p-6 rounded-xl text-white text-center">
+                        <h4 class="font-bold text-xl mb-2">Need a Consultation?</h4>
+                        <p class="text-sm text-gray-300 mb-6">Talk to our experts today to assess your needs.</p>
+                        <a href="contact.html"
+                            class="inline-block w-full bg-brand-green hover:bg-green-600 text-white font-bold py-3 rounded-lg transition">Contact
+                            Us</a>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Safety & Env. Management Systems</h3>
-                <p class="text-gray-600 text-sm mb-4">Establishment of management systems (ISO 14001, ISO 45001, HSG65).
-                    Gap analysis for international standards, audits, and workplace safety inspections.</p>
-                <a href="service-safety.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
             </div>
 
-            <!-- Service 2 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="100">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-exclamation-triangle text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Risk Assessment & Management</h3>
-                <p class="text-gray-600 text-sm mb-4">Comprehensive assessments including COSHH, Ergonomic, Noise, Work
-                    at Height, Fire Safety, Vibration, and Asbestos surveys.</p>
-                <a href="service-risk.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
-            </div>
+            <!-- Content -->
+            <div class="lg:w-2/3 order-1 lg:order-2" data-aos="fade-up">
+                <img src="images/project-gallery/meteorological-monitoring/photo_1_2026-06-01_12-06-02.jpg"
+                    alt="Meteorological monitoring" class="w-full h-80 object-cover rounded-2xl shadow-lg mb-8">
 
-            <!-- Service 3 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="200">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-seedling text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Environmental Monitoring & Control</h3>
-                <p class="text-gray-600 text-sm mb-4">Ambient air quality, stack emission monitoring, water quality
-                    assessment, soil pollution remediation, and ground vibration monitoring.</p>
-                <a href="service-monitoring.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
+                <h2 class="text-3xl font-bold text-brand-blue mb-6">Reliable Weather Data for Your Projects</h2>
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                    Meteorological monitoring is essential for environmental impact studies, dispersion modelling, and
+                    industrial compliance. We install and operate weather stations and collect parameters such as
+                    temperature, humidity, wind speed, rainfall, and atmospheric pressure.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-8 text-lg">
+                    Our data supports ESIA baseline studies, air quality assessments, and long-term climate records for
+                    mining, construction, and energy projects across Ghana.
+                </p>
 
-            <!-- Service 4 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="300">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-clipboard-check text-2xl"></i>
+                <h3 class="text-2xl font-bold text-brand-blue mb-4">Key Offerings</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-brand-green shrink-0 mt-1">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Weather Station Setup</h4>
+                            <p class="text-sm text-gray-600">Installation and calibration of automated meteorological
+                                stations.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-brand-green shrink-0 mt-1">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Routine Data Collection</h4>
+                            <p class="text-sm text-gray-600">Continuous or periodic monitoring with quality-assured
+                                records.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-brand-green shrink-0 mt-1">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Baseline Studies</h4>
+                            <p class="text-sm text-gray-600">Meteorological data for ESIA and environmental permitting.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-brand-green shrink-0 mt-1">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Reporting & Analysis</h4>
+                            <p class="text-sm text-gray-600">Summaries, trends, and compliance-ready documentation.</p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Management Plans</h3>
-                <p class="text-gray-600 text-sm mb-4">Preparation & Implementation of Environmental, Oil Spill, Fire &
-                    Emergency, Hazardous Chemical, and Relocation Action Plans.</p>
-                <a href="service-management.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
 
-            <!-- Service 5 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="400">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-file-signature text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Permits & Licensing</h3>
-                <p class="text-gray-600 text-sm mb-4">Support for Environmental Permits and Mining Support Service
-                    Permits. Development of Safety/Environmental Policies.</p>
-                <a href="service-permits.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
             </div>
-
-            <!-- Service 6 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="500">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-drafting-compass text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Surveying</h3>
-                <p class="text-gray-600 text-sm mb-4">Geophysical and geodetic surveys, topographical mapping, boundary
-                    surveys, and drone mapping for engineering and environmental projects.</p>
-                <a href="service-surveying.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
-
-            <!-- Service 7 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="600">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-globe-africa text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Environmental & Social Impact Assessment</h3>
-                <p class="text-gray-600 text-sm mb-4">ESIA studies and baseline assessments for government, NGOs, and
-                    private firms to meet regulatory and international standards.</p>
-                <a href="service-esia.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
-            </div>
-
-            <!-- Service 8 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="700">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-clipboard-list text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">RAP — Risk Assessment Procedure</h3>
-                <p class="text-gray-600 text-sm mb-4">Structured risk assessment procedures aligned with industry best
-                    practice for identifying, evaluating, and controlling operational hazards.</p>
-                <a href="service-rap.html" class="text-brand-green font-semibold text-sm hover:underline">Read More
-                    &rarr;</a>
-            </div>
-
-            <!-- Service 9 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="800">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-biohazard text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Asbestos Assessment, Removal & Disposal</h3>
-                <p class="text-gray-600 text-sm mb-4">Asbestos surveys, risk assessments, safe removal, and compliant
-                    disposal in accordance with health and environmental regulations.</p>
-                <a href="service-asbestos.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
-
-            <!-- Service 10 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="900">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-chalkboard-teacher text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Trainings & Facilitation</h3>
-                <p class="text-gray-600 text-sm mb-4">Workplace safety training, ISO awareness programmes, stakeholder
-                    workshops, and professional facilitation for teams and communities.</p>
-                <a href="service-training.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
-
-            <!-- Service 11 -->
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-transparent hover:border-brand-green group"
-                data-aos="fade-up" data-aos-delay="1000">
-                <div
-                    class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                    <i class="fas fa-cloud-sun text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Meteorological Monitoring</h3>
-                <p class="text-gray-600 text-sm mb-4">Weather and climate data collection, meteorological station setup,
-                    and monitoring to support environmental and industrial compliance.</p>
-                <a href="service-meteorological.html" class="text-brand-green font-semibold text-sm hover:underline">Read
-                    More &rarr;</a>
-            </div>
-
         </div>
     </section>
 
@@ -397,9 +342,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script src="script.js"></script>
 </body>
 
 </html>
